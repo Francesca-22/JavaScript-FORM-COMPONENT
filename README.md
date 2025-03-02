@@ -1330,6 +1330,6 @@ PHP continua nel punto 5 A e B e nel capitolo D per reimpostare il valore degli 
 <br>
 <br>
 
-<p style="text-align: center; font-weight: 800; font-size: 30px; background: -webkit-linear-gradient(45deg, #09009f, #4de1a3 70%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Fine Documentazione</p>
+#### Fine Documentazione
 
 <br>
