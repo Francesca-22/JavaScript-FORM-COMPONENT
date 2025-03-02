@@ -239,6 +239,8 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
     - **"addressRegione"** diventa pattern="`^[a-zA-ZÀ-ü][a-zA-Z' À-ü\\-\\/]*$`"
     - **"email"** diventa pattern="`^([a-z0-9]+(?:[\\._\\-][a-z0-9]+)*)@([a-z0-9]+(?:[\\.\\-][a-z0-9]+)*\\.[a-z]{2,6})$`"
     - *N.B.: i pattern hanno doppi escape* (`\\`) *perchè da javascript passano ad html per essere usati e quindi perdono il primo, ed è necessario che un escape resti; è possibile modificarli o aggiungerne nel file checkForm.js dalla riga 342 alla riga 378*
+    - **"pattern"** quindi posso usare un pattern personalizzato mettendo:
+        - **input-text-type-pattern="`^[a-zA-Z'\. À-ü\-,:0-9\|]*$`"** posso inserire qualsiasi pattern mi occorra
 6. **inputmode="option"** come da documentazione attributo inputmode di input per la tastiera touch
     - esempio **"text"** ; **"email"**
 7. **input-message=""** messaggio di errore per il campo
@@ -334,15 +336,14 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
     - **"addressRegione"** diventa pattern="`^[a-zA-ZÀ-ü][a-zA-Z' À-ü\\-\\/]*$`"
     - **"email"** diventa pattern="`^([a-z0-9]+(?:[\\._\\-][a-z0-9]+)*)@([a-z0-9]+(?:[\\.\\-][a-z0-9]+)*\\.[a-z]{2,6})$`"
     - *N.B.: i pattern hanno doppi escape* (`\\`) *perchè da javascript passano ad html per essere usati e quindi perdono il primo, ed è necessario che un escape resti; è possibile modificarli o aggiungerne nel file checkForm.js dalla riga 342 alla riga 378*
+    - **"pattern"** quindi posso usare un pattern personalizzato mettendo:
+        - **input-text-type-pattern="`^[a-zA-Z'\. À-ü\-,:0-9\|]*$`"** posso inserire qualsiasi pattern mi occorra
 
         <br>
 
             N.B. mettere "" stringa vuota se datalist-type="select-option" invece se datalist-type="suggestion" scegliere una delle opzioni di input-text-type, qui sopra
 
         <br>
-
-    - **"pattern"** quindi posso usare un pattern personalizzato mettendo:
-        - **input-text-type-pattern="`^[a-zA-Z'\. À-ü\-,:0-9\|]*$`"** posso inserire qualsiasi pattern mi occorra
 
 <br>
 
