@@ -1,0 +1,7 @@
+# max upload 20M in php 10MB
+php_value upload_max_filesize 20M
+php_value post_max_size 20M
+
+# limite di tempo per l'esecuzione dello script PHP
+php_value max_execution_time 200
+php_value max_input_time 200

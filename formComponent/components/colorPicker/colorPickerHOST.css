@@ -1,0 +1,284 @@
+/* COLOR PICKER */
+
+.color-picker-wrapper {
+    display: none;
+    opacity: 0;
+    position: relative;
+    top: -12px;
+    background-color: var(--color-picker-bgcolor);
+    max-width: 100%;
+    min-width: 180px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 15px 0px var(--color-picker-shadow-color);
+    -webkit-box-shadow: 0px 0px 15px 0px var(--color-picker-shadow-color);
+    border: solid 1px var(--color-picker-box-border-color);
+    z-index: 1000;
+}
+
+.color-picker-canvas-circle-wrapper {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 5px 0px 0px 5px;
+    background-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.color-picker-canvas {
+    position: absolute;
+    margin: -1px 0px 0px -1px;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.color-picker-circle {
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5), inset 0 0 2px 1px rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+    box-sizing: border-box;
+    border: solid 2px rgb(255, 255, 255);
+    pointer-events: none;
+}
+
+.color-picker-darken-input-range {
+    position: absolute;
+    appearance: none !important;
+    border-top: none;
+    border-bottom: none;
+    border-left: solid 3px rgb(255, 255, 255);
+    border-right: solid 3px rgb(0, 0, 0);
+    border-radius: 9px;
+    left: 0px;
+    right: 0px;
+    margin: 0px auto;
+    background-color: unset;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(0, 0, 0));
+    color: unset;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 0px;
+    width: 80%;
+    height: 23px;
+}
+
+/* firefox */
+.color-picker-darken-input-range::-moz-range-track {
+    height: 23px;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(0, 0, 0));
+    background-repeat: no-repeat;
+    background-size: 100% 23px;
+    background-position: left 50%;
+    border-radius: 9px;
+}
+.color-picker-darken-input-range::-moz-range-thumb {
+    background-color: transparent;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    box-sizing: border-box;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5), inset 0 0 2px 1px rgba(0, 0, 0, 0.5);
+    border: solid 2px rgb(255, 255, 255);
+    border-radius: 50%;
+    margin-top: 3px;
+}
+
+/* chrome opera safari */
+.color-picker-darken-input-range::-webkit-slider-runnable-track {
+    height: 23px;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(0, 0, 0));
+    background-repeat: no-repeat;
+    background-size: 100% 23px;
+    background-position: left 50%;
+    border-radius: 9px;
+}
+.color-picker-darken-input-range::-webkit-slider-thumb {
+    background-color: transparent;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5), inset 0 0 2px 1px rgba(0, 0, 0, 0.5);
+    border: solid 2px rgb(255, 255, 255);
+    border-radius: 50%;
+    margin-top: 3px;
+}
+
+/* ie */
+.color-picker-darken-input-range::-ms-track {
+    height: 23px;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(0, 0, 0));
+    background-repeat: no-repeat;
+    background-size: 100% 23px;
+    background-position: left 50%;
+    border-radius: 9px;
+}
+.color-picker-darken-input-range::-ms-thumb {
+    background-color: transparent;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    box-sizing: border-box;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5), inset 0 0 2px 1px rgba(0, 0, 0, 0.5);
+    border: solid 2px rgb(255, 255, 255);
+    border-radius: 50%;
+    margin-top: 3px;
+}
+
+
+/* write color */
+.color-picker-write-color-box {
+    position: absolute;
+    width: 80%;
+    height: 54px;
+    margin: 0px auto;
+    left: 0px;
+    right: 0px;
+}
+
+.color-picker-write-color-label {
+    display: block;
+    width: calc((100% - 14px) / 3);
+    height: 25px;
+    margin: 0px 7px 6px 0px;
+    float: left;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: solid 1px var(--color-picker-border-color);
+    text-align: center;
+    color: var(--color-picker-text-color);
+    font-size: 14.5px;
+    line-height: 25px;
+    background-color: var(--color-picker-button-bgcolor);
+    user-select: none;
+    cursor: pointer;
+}
+
+.color-picker-write-color-box label:last-of-type {
+    margin-right: 0px !important;
+}
+
+@media (any-pointer: fine) {
+    .color-picker-write-color-label:hover {
+        background-color: var(--color-picker-button-hover-bgcolor);
+    }
+}
+
+.color-picker-write-color-label-active {
+    background-color: var(--color-picker-button-active-bgcolor);
+    color: var(--color-picker-button-active-text-color);
+}
+
+@media (any-pointer: fine) {
+    .color-picker-write-color-label-active:hover {
+        background-color: var(--color-picker-button-active-bgcolor);
+    }
+}
+
+.color-picker-write-color-box input::selection {
+    color: unset;
+    background: var(--color-picker-input-write-color-selection-bgcolor);
+    text-decoration: underline 3px solid var(--color-picker-input-write-color-selection-underline-color);
+}
+
+.color-picker-write-color-box input::-moz-selection {
+    color: unset;
+    background: var(--color-picker-input-write-color-moz-selection-no-underline-bgcolor);
+}
+
+.color-picker-write-color-input {
+    float: initial;
+    width: 80%;
+    height: 23px;
+    background-color: var(--color-picker-input-write-color-bgcolor);
+    border-radius: 9px 0px 0px 9px;
+    border: solid 1px var(--color-picker-border-color);
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-picker-input-write-color-text-color);
+    display: none;
+    float: left;
+}
+
+.color-picker-write-color-input-active {
+    display: block;
+}
+
+.color-picker-write-color-button {
+    width: 20%;
+    height: 23px;
+    background-color: var(--color-picker-button-bgcolor);
+    border-radius: 0px 9px 9px 0px;
+    box-sizing: border-box;
+    border: solid 1px var(--color-picker-border-color);
+    border-left: none;
+    text-align: center;
+    font-family: var(--icon-font-material);
+    font-size: 18.5px;
+    /*line-height: 21px;*/
+    color: var(--color-picker-text-color);
+    user-select: none;
+    cursor: pointer;
+}
+
+.color-picker-write-color-button::after {
+    /*icon search*/
+    content: 'search';
+}
+
+@media (any-pointer: fine) {
+    .color-picker-write-color-button:hover {
+        background-color: var(--color-picker-button-hover-bgcolor);
+    }
+}
+
+.color-picker-write-color-button:active {
+    background-color: var(--color-picker-button-active-bgcolor);
+    color: var(--color-picker-button-active-text-color);
+}
+
+
+/* close done button */
+.color-picker-close-done-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 23px;
+    height: 23px;
+    background-color: var(--color-picker-button-bgcolor);
+    border-radius: 9px;
+    box-sizing: border-box;
+    border: solid 1px var(--color-picker-border-color);
+    text-align: center;
+    font-family: var(--icon-font-material);
+    font-size: 18.5px;
+    /*line-height: 22px;*/
+    color: var(--color-picker-text-color);
+    user-select: none;
+    cursor: pointer;
+}
+
+.color-picker-close-done-button::after {
+    /*icon done*/
+    content: 'done';
+}
+
+@media (any-pointer: fine) {
+    .color-picker-close-done-button:hover {
+        background-color: var(--color-picker-button-hover-bgcolor);
+    }
+}
+
+.color-picker-close-done-button:active {
+    background-color: var(--color-picker-button-active-bgcolor);
+    color: var(--color-picker-button-active-text-color);
+}

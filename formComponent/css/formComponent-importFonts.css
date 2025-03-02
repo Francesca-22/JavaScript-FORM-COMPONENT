@@ -1,0 +1,20 @@
+/* IMPORT FONT FOR MY-FORM CUSTOM TAG AND ITS CONTENTS */
+
+/* import Lato */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato_Regular'), local('LatoR'),
+        url('./fonts/Lato-Regular.woff2') format('woff2'),
+        url('./fonts/Lato-Regular.ttf') format('truetype');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* material outlined icon font */
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./icon-font/MaterialSymbolsOutlined.woff2') format('woff2');
+}
