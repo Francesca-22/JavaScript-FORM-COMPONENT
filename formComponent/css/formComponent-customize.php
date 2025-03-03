@@ -23,6 +23,9 @@ form.form#esempio-form-registrazione button.form-submit-button:hover,
 form.form#esempio-form-registrazione button.form-submit-button:focus {
     outline-width: 4px;
 }
+form.form#esempio-form-registrazione .form-loading {
+    top: 5px;
+}
 
 
 /* PERSONALIZZAZIONE SUBMIT BUTTON DEL FORM CON ID esempio-form-login */
@@ -43,6 +46,13 @@ form.form#esempio-form-login button.form-submit-button {
 form.form#esempio-form-login button.form-submit-button:hover,
 form.form#esempio-form-login button.form-submit-button:focus {
     outline-width: 3px;
+    outline-color: burlywood;
+}
+form.form#esempio-form-login .form-loading {
+    top: 3px;
+}
+form.form#esempio-form-login .form-loading::before,
+form.form#esempio-form-login .form-loading::after {
     outline-color: burlywood;
 }
 
@@ -76,4 +86,8 @@ form.form#esempio-form-aggiungi-indirizzo button.form-submit-button:focus,
 form.form#esempio-file button.form-submit-button:hover,
 form.form#esempio-file button.form-submit-button:focus {
     outline-width: 5px;
+}
+form.form#esempio-form-aggiungi-indirizzo .form-loading,
+form.form#esempio-file .form-loading {
+    top: 5px;
 }

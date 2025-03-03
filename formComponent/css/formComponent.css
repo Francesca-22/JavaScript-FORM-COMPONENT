@@ -294,7 +294,7 @@ form.form button.form-submit-button:focus {
     display: none;
     opacity: 0;
     position: absolute;
-    top: 8px;
+    top: 3px;
     left: 50%;
     transform: translateX(-50%);
     margin: 0px;
@@ -302,7 +302,11 @@ form.form button.form-submit-button:focus {
     height: 32px;
     border-radius: 50%;
     z-index: 2;
-    background-color: var(--form-submit-button-bg-color);
+    background-color: inherit;
+}
+.form-loading::before,
+.form-loading::after {
+    outline-color: var(--form-submit-button-text-color);
 }
 .form-loading::before {
     content: '';
@@ -314,8 +318,9 @@ form.form button.form-submit-button:focus {
     left: 9px;
     border-radius: 50%;
     outline-offset: 2px;
-    outline: solid 2px var(--form-submit-button-text-color);
-    background-color: var(--form-submit-button-bg-color);
+    outline-style: solid;
+    outline-width: 2px;
+    background-color: inherit;
 }
 .form-loading::after {
     content: '';
@@ -328,11 +333,12 @@ form.form button.form-submit-button:focus {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    outline: solid 2px var(--form-submit-button-text-color);
-    background-color: var(--form-submit-button-bg-color);
+    outline-style: solid;
+    outline-width: 2px;
+    background-color: inherit;
 }
 form.form button.form-submit-button:has(.form-loading--show) {
-    color: var(--form-submit-button-bg-color);
+    color: transparent !important;
     pointer-events: none;
     outline: solid 3px var(--form-submit-button-outline-color);
 }
