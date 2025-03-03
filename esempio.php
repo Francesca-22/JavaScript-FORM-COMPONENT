@@ -49,12 +49,8 @@
         .form-container {
             width: 100%;
             border-radius: 20px;
-            overflow: hidden;
             background-color: #ffffff;
             padding: 15px;
-            max-width: 100%;
-            text-overflow: ellipsis;
-            overflow: hidden;
         }
     </style>
 </head>
