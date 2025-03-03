@@ -67,6 +67,12 @@ In esempio.php mettere all'inzio del *tag body* (eventualmente dopo dei *tag sty
 
 <br>
 
+### SE IL PROGETTO UTILIZZA IL METODO PHP MVC, potrei avere dei problemi con i percorsi dei file, quindi:
+- alla riga 4 di *createFormComponent.js* modificare la variabile *let location = './'* in *let location = '/'* o nel percorso che necessita
+
+<br>
+<br>
+
 ### 4. COSTRUIRE IL FORM E GLI INPUT + INPUT-VALUE IN PHP
 Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle varie tipologie di input con utilità) e D (input value al reinvio del form dopo errore server in php)
 
