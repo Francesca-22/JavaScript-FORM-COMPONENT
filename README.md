@@ -2,8 +2,10 @@
 
 # DESCRIZIONE
 
-Form HTML costruito in JavaScript usando i custom tags nel codice HTML. 
-Sono presenti diversi input ognuno con funzioni specifiche come l'autocompletamento per i campi d'indirizzo, la possibilità di scegliere il prefisso internazionale nel campo telefono, il color picker e il date/time picker personalizzati, il conteggio dei caratteri, un input specifico di antispam, i menu a tendina con funzioni di opzione o suggerimento, diverse tipologie di range sia numerico che con parole, i campi per il caricamento dei file con la possibilità di visualizzarli prima di inviare il form e infine i radio button, le checkbox e lo switch. 
+Form HTML costruito in JavaScript usando i custom tags nel codice HTML.
+<br>
+Sono presenti diversi input ognuno con funzioni specifiche come l'autocompletamento per i campi d'indirizzo, la possibilità di scegliere il prefisso internazionale nel campo telefono, il color picker e il date/time picker personalizzati, il conteggio dei caratteri, un input specifico di antispam, i menu a tendina con funzioni di opzione o suggerimento, diverse tipologie di range sia numerico che con parole, i campi per il caricamento dei file con la possibilità di visualizzarli prima di inviare il form e infine i radio button, le checkbox e lo switch.
+<br>
 Il codice è importabile e utilizzabile in qualsiasi altro progetto HTML/PHP.
 
 <br>
