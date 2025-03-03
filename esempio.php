@@ -36,7 +36,7 @@
             margin: 20px auto 0px;
         }
         p.subtitle {
-            font: 600 25px/28px "Trebuchet MS";
+            font: 600 23px/25px "Courier New";
             margin-top: 80px;
             padding: 0px 20px;
             color: #252525;
