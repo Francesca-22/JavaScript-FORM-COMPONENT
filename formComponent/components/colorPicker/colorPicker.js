@@ -42,16 +42,16 @@ function setCanvasPosition(inputTag, canvasWrapper) {
 
 function getOffset(elem) {
     var box = elem.getBoundingClientRect();
-    var left = window.pageXOffset !== undefined ? window.pageXOffset : 
+    var left = window.scrollX !== undefined ? window.scrollX : 
         (document.documentElement || document.body.parentNode || document.body).scrollLeft;
-    var top = window.pageYOffset !== undefined ? window.pageYOffset : 
+    var top = window.screenY !== undefined ? window.screenY : 
         (document.documentElement || document.body.parentNode || document.body).scrollTop;
     return { left: box.left + left, top: box.top + top, right: document.body.clientWidth - (box.left + left + elem.offsetWidth) };
 }
 
 // crea tag canvas passato lo spettro dei colori da chiari a scuri
 function drawColors(canvas) {
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext('2d', { willReadFrequently: true });
     const { width, height } = canvas;
 
     context.fillStyle = '#ffffff';
@@ -84,7 +84,7 @@ function drawColors(canvas) {
 
 // filtro per scurire i colori o schiarire
 function setColorDarkenRange(canvasWrapper, canvas, darkenRange) {
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext('2d', { willReadFrequently: true });
     drawColors(canvas, canvasWrapper)
     context.save();
     if (darkenRange.value > 0) {
@@ -402,7 +402,7 @@ export function startColorPicker (documentShadowRoot, allInputColorInsideForm) {
 
         // start drag
         function startDragOnCanvas(event, offsetX, offsetY) {
-            if (colorPickerCanvas.getContext('2d').isPointInPath(offsetX, offsetY)) {
+            if (colorPickerCanvas.getContext('2d', { willReadFrequently: true }).isPointInPath(offsetX, offsetY)) {
                 let pickedColorClick = returnPickedColor(offsetX, offsetY, colorPickerCanvas)
                 setPickedColorAsValue(inputColor, pickedColorBox, pickedColorClick, colorPickerWriteColorHexInput, colorPickerWriteColorRgbInput, colorPickerWriteColorHslInput)
                 moveCirclePicker(event, colorPickerCanvasCircleWrapper, colorPickerCircle)
@@ -421,7 +421,7 @@ export function startColorPicker (documentShadowRoot, allInputColorInsideForm) {
         // move drag
         function dragOnCanvas(event, offsetX, offsetY) {
             // scroll problem
-            if (colorPickerCanvas.getContext('2d').isPointInPath(offsetX, offsetY)) {
+            if (colorPickerCanvas.getContext('2d', { willReadFrequently: true }).isPointInPath(offsetX, offsetY)) {
                 if (isDownOnCanvas === true) {
                     let pickedColorMove = returnPickedColor(offsetX, offsetY, colorPickerCanvas)
                     setPickedColorAsValue(inputColor, pickedColorBox, pickedColorMove, colorPickerWriteColorHexInput, colorPickerWriteColorRgbInput, colorPickerWriteColorHslInput)
