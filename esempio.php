@@ -18,7 +18,7 @@
         p.title {
             margin-bottom: -30px;
             padding: 0px 20px;
-            font: 600 30px/32px "Courier New";
+            font: 600 30px/32px "Courier New", monospace;
             color: #ffffff;
             text-align: center;
             max-width: 100%;
@@ -36,7 +36,7 @@
             margin: 20px auto 0px;
         }
         p.subtitle {
-            font: 600 23px/25px "Courier New";
+            font: 600 23px/25px "Courier New", monospace;
             margin-top: 80px;
             padding: 0px 20px;
             color: #252525;
@@ -64,7 +64,7 @@
 
     <p class="subtitle">Esempio di form di registrazione</p>
     <div class="form-container">
-        <my-form form-id="esempio-form-registrazione" form-class="form-row-small" submit-button-text="Registrati">
+        <my-form form-id="esempio-form-registrazione" form-class="form-row-small" submit-button-text="Registrati"> <!-- bottone personalizzato in formComponent/css/formComponent-customize.php -->
             <!-- input-hidden (invisibile all'utente) -->
             <input-hidden.esempio-form-registrazione
                 input-name="TIPOLOGIA_FORM"
@@ -220,7 +220,7 @@
 
     <p class="subtitle">Esempio di form di login</p>
     <div class="form-container">
-        <my-form form-action="./login.php" form-id="esempio-form-login" form-class="form-row-small" submit-button-text="login">
+        <my-form form-action="./login.php" form-id="esempio-form-login" form-class="form-row-small" submit-button-text="login"> <!-- bottone personalizzato in formComponent/css/formComponent-customize.php -->
             <input-hidden.esempio-form-login
                 input-name="TIPOLOGIA_FORM"
                 input-value="LOGIN"
@@ -258,7 +258,7 @@
 
     <p class="subtitle">Esempio di form di inserimento indirizzo con autocompletamento</p>
     <div class="form-container">
-        <my-form form-id="esempio-form-aggiungi-indirizzo" form-class="form-row-small" submit-button-text="Aggiungi indirizzo">
+        <my-form form-id="esempio-form-aggiungi-indirizzo" form-class="form-row-small" submit-button-text=""> <!-- submit-button-text="" perchè il bottone diventa un'icona in formComponent/css/formComponent-customize.php -->
             <!-- input-text per indirizzo -->
             <input-text.esempio-form-aggiungi-indirizzo
                 input-value="<?= $_POST['aggiungiIndirizzo_indirizzo'] ?? ''; ?>"
@@ -414,7 +414,7 @@
 
     <p class="subtitle">Esempi di datalist e range</p>
     <div class="form-container">
-        <my-form form-id="esempio-datalist-range" form-class="form-row-medium" submit-button-text="INVIA">
+        <my-form form-id="esempio-datalist-range" form-class="form-row-medium" submit-button-text="invia">
             <!-- esempio di datalist con opzione obbligatoria dalla lista (non da json) - campo facoltativo -->
             <input-datalist.esempio-datalist-range
                 input-value="<?= $_POST['datalistRange_mesePreferito'] ?? ''; ?>"
@@ -551,7 +551,7 @@
 
     <p class="subtitle">Esempi di datetime</p>
     <div class="form-container">
-        <my-form form-id="esempio-datetime" form-class="form-row-medium" submit-button-text="INVIA">    
+        <my-form form-id="esempio-datetime" form-class="form-row-medium" submit-button-text="Invia">    
             <!-- per tutti gli input-dt: non mettere REQUIRED MESSAGE, JavaScript LO TOGLIE SE PRESENTE -->        
             <!-- input-dt DATE -->
             <input-dt.esempio-datetime
@@ -608,7 +608,7 @@
 
     <p class="subtitle">Esempi di input file</p>
     <div class="form-container">
-        <my-form form-id="esempio-file" form-class="form-row-medium" submit-button-text="INVIA">
+        <my-form form-id="esempio-file" form-class="form-row-medium" submit-button-text=""> <!-- submit-button-text="" perchè il bottone diventa un'icona in formComponent/css/formComponent-customize.php -->
             <!-- - possibile uasere funzione aggiuntiva per caricare i file (documentazione: capitolo F) -->
             <!-- input-file - campo facoltativo -->
             <input-file.esempio-file

@@ -1,6 +1,6 @@
 <?php
     header('Content-type: text/css');
-    $color1 = "#ffffff";
+    $color1 = "#ffffff"; // es. usando variabile php per i colori
 ?>
 
 /* variabili qui sotto */
