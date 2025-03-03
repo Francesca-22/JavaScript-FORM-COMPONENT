@@ -1449,6 +1449,7 @@ form.form div.form-input-container-radio-checkbox div.input-radio-checkbox-conta
 }
 form.form div.form-input-container-radio-checkbox div.input-radio-checkbox-container label.input-label-radio-checkbox--hex-color:not(.input-label-radio-checkbox-active) div.box-radio-checkbox {
     background-color: transparent !important;
+    background-image: none !important;
 }
 form.form div.form-input-container-radio-checkbox div.input-radio-checkbox-container label.input-label-radio-checkbox--hex-color div.box-radio-checkbox::after {
     font-size: 30px;

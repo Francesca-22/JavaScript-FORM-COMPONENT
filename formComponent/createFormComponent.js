@@ -1362,6 +1362,15 @@ function setInputRadioCheckbox(inputTextCustomTag, inputRadioCheckboxContainer, 
     // label
     let label = document.createElement('label')
     label.setAttribute('class', 'input-label-radio-checkbox')
+
+    // option solo se contiene option(3) metto il badge after 3 alla label e tolgo la parte tra parentesi alla option
+    if (option.match(/\(/)) {
+      let resultsNumberForThisOption = option.split('(')[1].trim().replace(')', '')
+      label.setAttribute('data-after-content-results-number-for-this-option', resultsNumberForThisOption)
+      option = option.split('(')[0].trim()
+    }
+
+    // colori hex
     if (option.match(/^[#]/)) {
       label.classList.add('input-label-radio-checkbox--hex-color')
       if (option.match(/[_]/)) {
@@ -1372,13 +1381,6 @@ function setInputRadioCheckbox(inputTextCustomTag, inputRadioCheckboxContainer, 
       }
     } else {
       label.setAttribute('class', 'input-label-radio-checkbox')
-    }
-
-    // option solo se contiene option(3) metto il badge after 3 alla label e tolgo la parte tra parentesi alla option
-    if (option.match(/\(/)) {
-      let resultsNumberForThisOption = option.split('(')[1].trim().replace(')', '')
-      label.setAttribute('data-after-content-results-number-for-this-option', resultsNumberForThisOption)
-      option = option.split('(')[0].trim()
     }
 
     // sostituisco tutti gli spazi bianchi della option con underscore
@@ -1580,7 +1582,7 @@ function setAntispam(inputTextCustomTag, input, inputUtilityContainer, label) {
   const inputUtilityAntispamImg = document.createElement('img')
   inputUtilityAntispamImg.setAttribute('id', `img-antispam-${inputTextCustomTag.getAttribute('input-name')}`)
   inputUtilityAntispamImg.setAttribute('class', 'antispam-img')
-  inputUtilityAntispamImg.setAttribute('src', inputTextCustomTag.getAttribute('input-antispam-img') ?? location + 'captcha/captcha.php')
+  inputUtilityAntispamImg.setAttribute('src', inputTextCustomTag.getAttribute('input-antispam-img') ?? location + '/formComponent/captcha/captcha.php')
 
   inputUtilityContainer.appendChild(inputUtilityAntispam)
   inputUtilityAntispam.appendChild(inputUtilityAntispamImg)

@@ -5,9 +5,9 @@
 <br>
 
 ### 1. COPIARE I FILE
-Copiare la cartella **"formComponent"** e creare la cartella **"upload"** nella cartella del proprio sito in cui si trova in file.php (qui lo chiamo prova.php) a cui si vuole aggiungere questo form, il file deve essere **.php**;
+Copiare la cartella **"formComponent"** e creare la cartella **"upload"** nella cartella del proprio sito in cui si trova in file.php (qui lo chiamo esempio.php) a cui si vuole aggiungere questo form, il file deve essere **.php**;
 
-*N.B.: Si può poi usare anche in più file basta che si trovino accando a prova.php*
+*N.B.: Si può poi usare anche in più file basta che si trovino accando a esempio.php*
 
 Utilizzando XAMPP, per quanto riquarla la cartella **"upload"**, una volta creata, necessita di permessi per evitare futuri errori, quindi aprire il teminale e dare i comandi come segue:
 
@@ -30,7 +30,7 @@ sudo ls -dl
 <br>
 
 ### 2. CSS
-In prova.php non ci sono file.css da aggiungere, ma è possibile metterne quanti se ne vuole per la grafica globale della pagina;
+In esempio.php non ci sono file.css da aggiungere, ma è possibile metterne quanti se ne vuole per la grafica globale della pagina;
 
 - **PERSONALIZZAZIONE DEL FORM COMPONENT**
 
@@ -52,7 +52,7 @@ In prova.php non ci sono file.css da aggiungere, ma è possibile metterne quanti
 <br>
 
 ### 3. JS
-In prova.php mettere all'inzio del *tag body* (eventualmente dopo dei *tag style*) come di seguito:
+In esempio.php mettere all'inzio del *tag body* (eventualmente dopo dei *tag style*) come di seguito:
 
 ```html
 <!DOCTYPE html>
@@ -127,19 +127,19 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 
 ```html
 <my-form form-id="esempio" form-class="" submit-button-text="">
-    <!-- 0. INPUT-HIDDEN --> <input-hidden.esempio></input-hidden.esempio>
-    <!-- 1. INPUT-TEXT --> <input-text.esempio></input-text.esempio> <!-- COUNT-CHARACTERS -->
-    <!-- 2. INPUT-PHONE --> <input-phone.esempio></input-phone.esempio> <!-- COUNT-CHARACTERS, SELECT-PREFIX -->
-    <!-- 3. INPUT-DATALIST --> <input-datalist.esempio></input-datalist.esempio> <!-- AUTOCOMPLETE-ADDRESS -->
-    <!-- 4. INPUT-PASSWORD --> <input-password.esempio></input-password.esempio> <!-- PASSWORD-VISIBILITY -->
-    <!-- 5. INPUT-RANGE --> <input-range.esempio></input-range.esempio>
-    <!-- 6. INPUT-COLOR --> <input-color.esempio></input-color.esempio>
-    <!-- 7. INPUT-DT (date e/o time) --> <input-dt.esempio></input-dt.esempio>
-    <!-- 8. INPUT-FILE --> <input-file.esempio></input-file.esempio>
-    <!-- 9. INPUT-RADIO-CHECKBOX --> <input-radio-checkbox.esempio></input-radio-checkbox.esempio>
-    <!-- 10. INPUT-SWITCH --> <input-switch.esempio></input-switch.esempio>
-    <!-- 11. INPUT-TEXTAREA --> <input-textarea.esempio></input-textarea.esempio> <!-- COUNT-CHARACTERS -->
-    <!-- 12. INPUT-ANTISPAM --> <input-antispam.esempio></input-antispam.esempio>
+    <!-- 0. INPUT-HIDDEN --> <input-hidden.esempio />
+    <!-- 1. INPUT-TEXT --> <input-text.esempio /> <!-- utility possibili: COUNT-CHARACTERS -->
+    <!-- 2. INPUT-PHONE --> <input-phone.esempio /> <!-- utility possibili: COUNT-CHARACTERS, SELECT-PREFIX -->
+    <!-- 3. INPUT-DATALIST --> <input-datalist.esempio /> <!-- utility possibili: AUTOCOMPLETE-ADDRESS -->
+    <!-- 4. INPUT-PASSWORD --> <input-password.esempio /> <!-- utility possibili: PASSWORD-VISIBILITY -->
+    <!-- 5. INPUT-RANGE --> <input-range.esempio />
+    <!-- 6. INPUT-COLOR --> <input-color.esempio />
+    <!-- 7. INPUT-DT (date e/o time) --> <input-dt.esempio />
+    <!-- 8. INPUT-FILE --> <input-file.esempio />
+    <!-- 9. INPUT-RADIO-CHECKBOX --> <input-radio-checkbox.esempio />
+    <!-- 10. INPUT-SWITCH --> <input-switch.esempio />
+    <!-- 11. INPUT-TEXTAREA --> <input-textarea.esempio /> <!-- utility possibili: COUNT-CHARACTERS -->
+    <!-- 12. INPUT-ANTISPAM --> <input-antispam.esempio />
 </my-form>
 ```
 
@@ -883,7 +883,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 
 - ### SE switch-read-document-icon="**true**" REQUIRED ATTRIBUTES:
 9. **switch-read-document-name="nomeDocumeto.pdf"** nome del documento da far leggere all'utente (meglio se .pdf)
-    - esempio **"./doc/example.pdf"** il documento può trovarsi in qualsiasi cartella del sito *(percorso da prova.php al file)* oppure può essere un link esterno
+    - esempio **"./doc/example.pdf"** il documento può trovarsi in qualsiasi cartella del sito *(percorso da esempio.php al file)* oppure può essere un link esterno
 
 <br>
 <br>
@@ -947,7 +947,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 0. **fiels-order-number=""** ordine numerico dei campi input usato da *display:flex* che può essere l'ordine di scrittura o differirvi (vale anche per lo scorrimento degli input con TAB o SHIFT+TAB)
     - esempio **"0"** deve esseci tutta la sequenza di numeri da 0 al numero complessivo dei campi e non devono mai ripetersi, come da documentazione di *order:n* in display flex
 1. **label-text=""** nome o domanda del campo
-    - esempio **"Inserisci il tuo nome"**
+    - esempio **"Antispam"**
 2. **input-width="options"** numero larghezza del campo, ogni riga deve avere somma 100 *(se 30 il campo successivo sarà 70)*
     - **"20"** ; **"30"** ; **"40"** ; **"50"** ; **"60"** ; **"70"** ; **"80"** ; **"100"**
 3. **input-name=""** è il *name* del tag input, senza spazi, all'occorrenza con cammelCase o underscore (senza accenti)
@@ -965,7 +965,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 8. **required="message"** mette il campo obbligatorio, come value inserire il messaggio che compare quando l'input è vuoto, lasciando stringa vuota non compare alcun messaggio ma fa errore ugualmente
     - esempio **required="Campo obbligatorio."**
 9. **input-antispam-img="path/to/file/captcha.php"** percorso a un file diverso dal default per gererare l'immagine captcha
-    - se non metto questo attributo sarà default **./captcha/captcha.php** ovvero cartella *captcha* file *captcha.php* che utilizza il file *captcha.png* per generare l'immagine e salva il risultato della somma semplice nella variabile PHP **$_SESSION['check']** che dovrà poi corrispondere all'input utente *(da fare con PHP)*
+    - se non metto questo attributo sarà default **./formComponent/captcha/captcha.php** ovvero cartella *captcha* file *captcha.php* che utilizza il file *captcha.png* per generare l'immagine e salva il risultato della somma semplice nella variabile PHP **$_SESSION['check']** che dovrà poi corrispondere all'input utente *(da fare con PHP)*
     - *N.B.: il nome 'check' della variabile $_SESSION['check'] può essere cambiato nel file captcha.php con qualunque occorra*
 
 <br>
@@ -1143,7 +1143,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 
 - **SINGOLO FILE MAX SIZE e MAX SIZE PER L'UPLOAD IMPOSTATA SUL SERVER**
 
-    Verificare la voce UPLOAD_MAX_FILESIZE e la voce POST_MAX_SIZE con il comando *phpinfo();* in prova.php (i due valori possone essere uguali o può essere di poco maggioree il secondo). 
+    Verificare la voce UPLOAD_MAX_FILESIZE e la voce POST_MAX_SIZE con il comando *phpinfo();* in esempio.php (i due valori possone essere uguali o può essere di poco maggioree il secondo). 
 
     È impostata per motivi di sicurezza in php una dimensione del singolo file massima di 10MB (indipendente da quella massima per il form se minore) ma è possibile modificarla se nel form si richiede una dimensione maggiore. Si può mettere un numero intero oppure un numero decimale, in quest'ultimo caso usando sempre il punto e non la virgola per i rotti. Il numero deve essere sempre inserito come stringa (come si vede nel codice che segue).
 
@@ -1153,7 +1153,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 
     - **Se si sta usando APACHE WEB SERVER è possibile cambiarli nel file .htaccess:**
 
-        1. creare il file **.htaccess** vicino al file *prova.php*
+        1. creare il file **.htaccess** vicino al file *esempio.php*
         2. inserirvi quanto segue:
         ```apache
             # max upload 20M in php 10MB (meglio abbondare di almeno 10MB per evitare errori)
@@ -1164,7 +1164,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
             php_value max_execution_time 200
             php_value max_input_time 200
         ```
-        3. salvare e verificare che entrando con il browser su *prova.php* non compaia l'**errore 500** *(quindi uno sbaglio nel file .htaccess)*.
+        3. salvare e verificare che entrando con il browser su *esempio.php* non compaia l'**errore 500** *(quindi uno sbaglio nel file .htaccess)*.
         4. È possibile verificare se i comandi sono stati eseguiti controllando con *phpInfo();* come detto precedentemente.
         5. Successivamente in questo file possono essere aggiunti ulteriori comandi per il web server anche se non riguardano questo componete.
 
@@ -1191,7 +1191,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 
 <br>
 
-**In prova.php aprire il tag `<?php ... ?>` prima di *`<!DOCTYPE html>...`* e inserire come segue:**
+**In esempio.php aprire il tag `<?php ... ?>` prima di *`<!DOCTYPE html>...`* e inserire come segue:**
 
 ```php
 // N.B.: le funzioni, usate per verificare se lo username esiste già o se le credenziali di login sono corrette, sono solo un esempio schematico di come impostare la registrazione e il login. In questi casi è necessario creare un oggetto per gestire l'utente. Qui si vuole solo far vedere come vengono visualizzati e come inserire i vari errori del server (username già esistente per la registrazione, credenziali errate per il login come username inesistente e password/username errata/i)

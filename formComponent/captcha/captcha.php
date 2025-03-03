@@ -5,7 +5,7 @@
 	//from file or URL
 	$img = imagecreatefrompng('captcha.png');
 	// Set the background color of image
-	$img_background_color = imagecolorallocate($img,  215, 91, 91);
+	$img_background_color = imagecolorallocate($img, 37, 37, 37);
 	$img  = imagecreatetruecolor(80,19);
 	//displaying the random text on the captcha 
 	$numero = rand(1, 9); 
