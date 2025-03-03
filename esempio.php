@@ -59,13 +59,12 @@
     </style>
 </head>
 <body>
-
-    <script src="./formComponent/createFormComponent.js" type="module"></script>
-
     <!-- documentazione in README.md -->
 
-    <p class="title">JavaScript Form Component</p>
+    <!-- importo il componente -->
+    <script src="./formComponent/createFormComponent.js" type="module"></script>
 
+    <p class="title">JavaScript Form Component</p>
 
     <p class="subtitle">Esempio di form di registrazione</p>
     <div class="form-container">
