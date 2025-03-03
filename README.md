@@ -62,6 +62,10 @@ In esempio.php non ci sono file.css da aggiungere, ma è possibile metterne quan
 
 <br>
 
+**N.B.: possibile interferenza del icon font material, se in uso anche nel progetto, in questo caso il problema è la versione del font, quindi sostituirlo in *formComponent/css/icon-font/MaterialSymbolsOutlined.woff2* con quello usato nel progetto purchè abbia stesso nome e stessa estensione**
+
+<br>
+
 ### 3. JS
 In esempio.php mettere all'inzio del *tag body* (eventualmente dopo dei *tag style*) come di seguito:
 
