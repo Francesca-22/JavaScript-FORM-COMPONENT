@@ -1,4 +1,4 @@
-# max upload 20M in php 10MB
+# max upload 20M, in php impostato max 10MB a file
 php_value upload_max_filesize 20M
 php_value post_max_size 20M
 

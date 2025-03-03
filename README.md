@@ -46,7 +46,7 @@ In esempio.php non ci sono file.css da aggiungere, ma è possibile metterne quan
 
     **Se non si vuole usare PHP:**
     - cambiare l'estensione dei due file in .css e rimuovere dal contenuto di entrambi ogni pezzo di codice PHP;
-    - aprire *formComponent/createFormComponent.js* e cambiare l'estensione dei due file in .css alla riga 30 o limitrofa e alla riga 49 o limitrofa;
+    - aprire *formComponent/createFormComponent.js* e cambiare l'estensione dei due file in .css alla riga 32 o limitrofa e alla riga 51 o limitrofa;
     - ora si possono usare come comuni file CSS, ma non è più possibile diversificare la grafica del componente i base alla pagina del sito in cui ci si trova.
 
 <br>
@@ -238,7 +238,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
     - **"addressProvincia"** diventa pattern="`^[a-zA-Z]*$`"
     - **"addressRegione"** diventa pattern="`^[a-zA-ZÀ-ü][a-zA-Z' À-ü\\-\\/]*$`"
     - **"email"** diventa pattern="`^([a-z0-9]+(?:[\\._\\-][a-z0-9]+)*)@([a-z0-9]+(?:[\\.\\-][a-z0-9]+)*\\.[a-z]{2,6})$`"
-    - *N.B.: i pattern hanno doppi escape* (`\\`) *perchè da javascript passano ad html per essere usati e quindi perdono il primo, ed è necessario che un escape resti; è possibile modificarli o aggiungerne nel file checkForm.js dalla riga 342 alla riga 378*
+    - *N.B.: i pattern hanno doppi escape* (`\\`) *perchè da javascript passano ad html per essere usati e quindi perdono il primo, ed è necessario che un escape resti; è possibile modificarli o aggiungerne nel file checkForm.js dalla riga 365 alla riga 411*
     - **"pattern"** quindi posso usare un pattern personalizzato mettendo:
         - **input-text-type-pattern="`^[a-zA-Z'\. À-ü\-,:0-9\|]*$`"** posso inserire qualsiasi pattern mi occorra
 6. **inputmode="option"** come da documentazione attributo inputmode di input per la tastiera touch
@@ -335,7 +335,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
     - **"addressProvincia"** diventa pattern="`^[a-zA-Z]*$`"
     - **"addressRegione"** diventa pattern="`^[a-zA-ZÀ-ü][a-zA-Z' À-ü\\-\\/]*$`"
     - **"email"** diventa pattern="`^([a-z0-9]+(?:[\\._\\-][a-z0-9]+)*)@([a-z0-9]+(?:[\\.\\-][a-z0-9]+)*\\.[a-z]{2,6})$`"
-    - *N.B.: i pattern hanno doppi escape* (`\\`) *perchè da javascript passano ad html per essere usati e quindi perdono il primo, ed è necessario che un escape resti; è possibile modificarli o aggiungerne nel file checkForm.js dalla riga 342 alla riga 378*
+    - *N.B.: i pattern hanno doppi escape* (`\\`) *perchè da javascript passano ad html per essere usati e quindi perdono il primo, ed è necessario che un escape resti; è possibile modificarli o aggiungerne nel file checkForm.js dalla riga 365 alla riga 411*
     - **"pattern"** quindi posso usare un pattern personalizzato mettendo:
         - **input-text-type-pattern="`^[a-zA-Z'\. À-ü\-,:0-9\|]*$`"** posso inserire qualsiasi pattern mi occorra
 
@@ -1156,7 +1156,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
         1. creare il file **.htaccess** vicino al file *esempio.php*
         2. inserirvi quanto segue:
         ```apache
-            # max upload 20M in php 10MB (meglio abbondare di almeno 10MB per evitare errori)
+            # max upload 20M, in php impostato max 10MB a file
             php_value upload_max_filesize 20M
             php_value post_max_size 20M
 
@@ -1193,9 +1193,9 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 
 **In esempio.php aprire il tag `<?php ... ?>` prima di *`<!DOCTYPE html>...`* e inserire come segue:**
 
-```php
-// N.B.: le funzioni, usate per verificare se lo username esiste già o se le credenziali di login sono corrette, sono solo un esempio schematico di come impostare la registrazione e il login. In questi casi è necessario creare un oggetto per gestire l'utente. Qui si vuole solo far vedere come vengono visualizzati e come inserire i vari errori del server (username già esistente per la registrazione, credenziali errate per il login come username inesistente e password/username errata/i)
+- N.B.: le funzioni *usernameAlreadyExist()*, *saveUser()* *isCorrectUsernamePassword()* NON sono presenti nel codice PHP (solo per esempio schematico)
 
+```php
 <?php
 
     require "./formComponent/php/formPHPScanData.php";
@@ -1217,8 +1217,8 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
                 // qui sotto '10' = 10MB - singolo file max size per la sicurezza
                 // return array associativo percorsi file (es. key=nomeInput:0 se multiple oppure es. key=nomeInput)
                 $files = sanitizeSaveFormFilesData($formFilesData, $formPostDataSanitized['_username'], '10');
-                # saveUser($formPostDataSanitized);
-                # header('Location: login.php');
+                saveUser($formPostDataSanitized);
+                header('Location: login.php');
             } else {
                 //cancella i files salvati in fase di registrazione se errore come ad esempio username già presente nel database
                 deleteFormFilesData($files); // $files = array con il o i percorsi dei file salvati
@@ -1233,12 +1233,8 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 
             if (usernameAlreadyExist($formPostDataSanitized['_username_login']) === true) {
 
-                // mettere la riga qui sotto solo se ci sono degli INPUT-FILE nella form di login
-                // return array associativo percorsi file (es. key=nomeInput:0 se multiple oppure es. key=nomeInput)
-                # $files = sanitizeSaveFormFilesData($formFilesData, $formPostDataSanitized['_username'], '10'); // $files = array con il o i percorsi dei file salvati
-
                 if (isCorrectUsernamePassword($formPostDataSanitized['_username_login'],$formPostDataSanitized['_loginPassword']) === true) {
-                    # header('Location: dashboard.php');
+                    header('Location: dashboard.php');
                 } else {
                     // server error punto 5B - credenziali errate (login form) - formato: "messaggio"
                     $loginPasswordErrorMessage = "Username o password errati!";
@@ -1310,19 +1306,17 @@ PHP continua nel punto 5 A e B e nel capitolo D per reimpostare il valore degli 
 
     Ad esempio se creo un nuovo *input-text-type="usernameID"* posso creare un errore server con la stessa metodologia:
 
-    1. alla riga 341 della funzione setIputPattern:
+    1. alla riga 366 della funzione setIputPattern:
 
         - aggiungo come input-text-type usernameId;
 
     2. in createFormComponent.js:
     
-        - impostare nella creazione del tag, es. input-text, gli attributi richiesti per far funzionare l'errore server per il nuovo input-text-type nel file createFormComponent.js come avviene dalla riga 418 alla riga 420 della funzione setInput per username (fare attenzione al tipo di input) creando una nuova funzione simile a setUsernameServerError ma con l'attributo con il nome scelto es. username-id-error-server-message;
+        - impostare nella creazione del tag, es. input-text, gli attributi richiesti per far funzionare l'errore server per il nuovo input-text-type nel file createFormComponent.js come avviene dalla riga 466 alla riga 468 della funzione setInput per username (fare attenzione al tipo di input) creando una nuova funzione simile a setUsernameServerError ma con l'attributo con il nome scelto es. username-id-error-server-message;
 
-    3. è necessario in html fare come qui sopra ai punti 6A. e 6B. usando il nome corretto per l'attributo es. username-id-error-server-message;
+    3. è necessario in html fare come qui sopra ai punti 5A. e 5B. usando il nome corretto per l'attributo es. username-id-error-server-message;
 
     4. comporre il tutto in php come nell'esempio schematico del punto 4;
-
-    *(N.B.: la spiegazione è schematica e da interpretare usando gli esempi di errore server già presenti nel codice)*
 
 <br>
 <br>

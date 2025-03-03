@@ -1,15 +1,5 @@
 <?php
 
-# solo per esempio schematico
-function usernameAlreadyExist($username):bool {
-    return false;
-}
-function isCorrectUsernamePassword($username, $password):bool {
-    return false;
-}
-# fine solo per esempio schematico
-
-
 ############################################# TOOLS
 
 /**
