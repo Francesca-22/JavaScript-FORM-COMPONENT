@@ -889,7 +889,7 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 <br>
 
 - ### OPTIONAL ATTRIBUTES:
-5. **required="message"** mette il campo obbligatorio, come value inserire il messaggio che compare se l'utente non cecca il numero corretto di caselle, lasciando stringa vuota non compare alcun messaggio ma fa errore ugualmente
+5. **required="message"** nel caso di switch significa che è obbligatorio il valore true
     - esempio **required="Campo obbligatorio."**
     - esempio **required=""**
 6. **switch-text-inside-button="MessageTrue;MessageFalse"** (altrimenti non mettere questo attributo) messaggio interno al botton di switch, messaggi prima true poi false separati da **;** senza spazi prima e dopo il ; e senza spazi all'inizio e alla fine della riga
@@ -905,6 +905,10 @@ Seguire i punti qui sotto: capitoli B (creazione form tag), C (creazione delle v
 - ### SE switch-read-document-icon="**true**" REQUIRED ATTRIBUTES:
 9. **switch-read-document-name="nomeDocumeto.pdf"** nome del documento da far leggere all'utente (meglio se .pdf)
     - esempio **"./doc/example.pdf"** il documento può trovarsi in qualsiasi cartella del sito *(percorso da esempio.php al file)* oppure può essere un link esterno
+
+<br>
+
+    N.B.: switch passa il valore in stringa 'true' a PHP (inviando il form) SOLO SE TRUE, quindi se PHP NON riceve il campo significa che l'utente ha scelto 'false'
 
 <br>
 <br>
