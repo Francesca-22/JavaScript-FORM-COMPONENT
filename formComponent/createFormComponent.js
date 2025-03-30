@@ -116,6 +116,9 @@ customElements.define('my-form', class extends HTMLElement {
 
     // INIZIALIZZO LA VALIDAZIONE DELLA FORM SETTANDO GLI EVENTI LANCIANDO IL FILE IMPORTATO
     this.shadowRoot.load = checkForm.checkForm(this.shadowRoot.querySelector('#' + this.getAttribute("form-id")));
+
+    // elimino i custom tags (tranne my-form, utile in js) per ripulire il codice HTML
+    this.innerHTML = ''
   }
 });
 
